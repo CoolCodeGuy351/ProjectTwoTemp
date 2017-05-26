@@ -1,0 +1,29 @@
+{
+  "name": "project-two",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoolCodeGuy351/ProjectTwo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoolCodeGuy351/ProjectTwo/issues"
+  },
+  "homepage": "https://github.com/CoolCodeGuy351/ProjectTwo#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "connect-ensure-login": "^0.1.1",
+    "express": "^4.15.3",
+    "method-override": "^2.3.9",
+    "mysql": "^2.13.0",
+    "passport": "^0.3.2",
+    "passport-auth0": "^0.6.0",
+    "sequelize": "^3.30.4"
+  }
+}
