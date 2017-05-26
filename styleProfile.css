@@ -1,0 +1,70 @@
+body {
+  font: 400 15px Lato, sans-serif;
+  line-height: 1.8;
+  color: white;
+  background-color: #f4511e;
+
+}
+
+/* navbar */
+.navbar {
+  font-family: Montserrat, sans-serif;
+  margin-bottom: 0 !important;
+  background-color: #f4511e !important;
+  z-index: 9999 !important;
+  border: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.42857143 !important;
+  letter-spacing: 4px;
+  border-radius: 0;
+}
+.navbar li a, .navbar .navbar-brand {
+  color: #fff !important;
+}
+.navbar-nav li a:hover, navbar-nav li.active a {
+  color: #f4511e !important;
+  background-color: #fff !important;
+}
+.navbar-default, .navbar-toggle {
+  border-color: transparent !important;
+  color: #fff !important;
+}
+/* Main Section Added by Joe */
+#main-section{
+padding-top: 10%;
+
+min-height: 100%;
+background-color: #f4511e;
+color: white;
+}
+
+/* Profile container added by Joe */
+
+#profile-container{
+  margin-top: 10%;
+  border-style: solid 1px 
+  border-radius: 5%;
+  border: 2px solid white;
+}
+
+#profile-name{
+ margin-top: 5%;
+}
+
+#profile-image{
+  margin-bottom: 5%;
+}
+
+#total-post-container{
+  margin-top: 10%;
+
+}
+
+#total-comment-container{
+  margin-top: 10%;
+
+}
+
+#button-container{
+  margin-top: 2%;
+}
