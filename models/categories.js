@@ -7,9 +7,9 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                Category.belongTo(models.Summary)
-            };
+                Category.belongsTo(models.Summary)
+            },
         }
     });
-    return Comment;
+    return Category;
 };
