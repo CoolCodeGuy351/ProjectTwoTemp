@@ -8,14 +8,14 @@
   },
   "test": {
     "username": "root",
-    "password": "something",
+    "password": "pass",
     "database": "summary_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "something",
+    "password": "pass",
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"

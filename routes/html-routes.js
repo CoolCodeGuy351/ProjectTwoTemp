@@ -7,48 +7,49 @@
 var path = require("path");
 var db = require("../models");
 var passport = require('passport')
+var apiRoutes = require('./api-routes.js')
 
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-  // index route loads view.html
-  app.get("/", function(req, res) {
-    res.render("userAuth", {});
-  });
-
-  app.get("/category/:threeCategories", function(req, res) {
-// make call with middleware to grab the string in the api
-    res.render("category", {
-    	catName: req.params.threeCategories,
-    	categoryNameData: [{title: "api title string", summary: "api summary string"}]
+    // index route loads view.html
+    app.get("/", function(req, res) {
+        res.render("userAuth", {});
     });
-  });
-  // app.get("/category/books", function(req, res) {
-  //   res.render("category", {});
-  // });
-  //need to query the db here to grab data
 
-/////////////// Added by Joe for auto0 //////////////////////
-app.get('/login',
-  function(req, res){
-    res.render('login', { env: process.env });
-  });
+    app.get("/home", function(req, res) {
+        res.render("homepage", {});
+    });
 
-// Perform session logout and redirect to homepage
-app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
-});
+    app.get("/category/:threeCategories", function(req, res) {
+        // make call with middleware to grab the string in the api
+        res.render("category", {
+            catName: req.params.threeCategories,
+            // catTopFour: 
+            categoryNameData: [{ title: "api title string", summary: "api summary string" }]
+        });
+    });
 
-// Perform the final stage of authentication and redirect to '/user'
-app.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
-  function(req, res) {
-    res.redirect(req.session.returnTo || '/user');
-  });
-
-/////////////// Added by Joe for auto0 //////////////////////
 }
 
+
+//comment from hanan: this was posted in place of the other /category/:threeCategories but was not allowing us to actually run the html
+//     app.get("/category/:threeCategories", function(req, res) {
+//         db.Summary.findAll({
+//             where: {
+//                 categoryId: req.params.threeCategories
+//             }
+//         }).then(function(summary) {
+//             apiRoutes.findCountAll(req, res).then(function(data) {
+//                 res.render("category", {
+//                     catName: req.params.threeCategories,
+//                     top4: data,
+//                     categoryNameData: summary
+//                 });
+//             })
+//         });
+//     });
+
+// }

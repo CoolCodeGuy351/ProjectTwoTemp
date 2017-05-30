@@ -23,29 +23,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">projectTWO!</a>
+                <a href="#" class="navbar-brand"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
+                 <ul class="nav navbar-nav text-center">
+                <h1>{{catName}}: </h1>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <input type="text" class="form-control" placeholder="Search">
-                    <!-- rather than have a submit button, user must hit 'enter' -->
-<!--                     <button type="submit" class="btn btn-default">Submit</button>
- -->                </ul>
+                    <a href="/search"><button type="submit" class="btn btn-default" name="search"> Submit</button></a>
+                </ul>
             </div>
-        </div>
     </nav>
-    <div class="jumbotron text-center" id="backgroundBooks">
+    <div class="jumbotron text-center" id="background">
 
-        <!-- handlebar which displays books/movies/people in jumbotron-->
-        <h1>{{catName}}:</h1>
         <ul class = "category-name-container"></ul>
-
-
     </div>
-    <!-- insert mike code -->
     <div class="row text-center">
-        <h3 align="center">Todays Top Four:</h3>
-        <div class="Top 4" align="center">
+        <h3 align="center">Top Four in {{catName}}</h3>
+        <div class="top-4-list" align="center">
+<!-- 
+        {{#each top4}}
+            <div class="col-sm-3">
+                <h2><strong>{{this.title}} </strong></h2>
+                <h4><strong>{{this.summary}}</strong></h4>
+                    <br>
+            </div>
+        {{/each}}
+ -->
             <div class="col-lg-3">
                 <ul>
                     <li>item one</li>
@@ -75,18 +80,21 @@
     <div class="row text-center">
         <div class="col-sm-3">
         </div>
+        <form class="create-update-form" action="/post" method="POST">
         <div class="col-sm-6">                       
             <div class="form-group text-left">
-                <label for="usr">Name:</label>
+                <label for="title">Name:</label>
                 <input type="text" class="form-control" id="userImputTitle" name="title">
             </div>
             <div class="form-group text-left">
-                <label for="pwd">Summary</label>
+                <label for="summary">Summary</label>
                 <input type="text" class="form-control" id="userImputSummary" name="summary">
             </div>
-            <button type="submit" class="btn btn-default">create</button>
+            <button type="submit" class="btn btn-default">Create</button>
             <!-- this will prepend the recently submitted name/summary to the CategoryNameData page -->
         </div>
+</form>
+
         <div class="col-sm-3">
         </div>
     </div>
@@ -110,10 +118,11 @@
     </div>
     <br>
     <footer class="footer text-center">
-        <p>insert footer here</p>
     </footer>
 
-
+    <script>
+        $('#background').css('background-image', 'url("/css/{{catName}}.jpg")')
+    </script>
     </body>
 
 </html>

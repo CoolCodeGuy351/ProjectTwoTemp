@@ -25,9 +25,9 @@ module.exports = function(sequelize, DataTypes) {
                     associate: function(models) {
                         // Associating Author with Summary
                         // When an Author is deleted, also delete any associated Summary
-                        Author.belongsTo(models.Summary);
-                        Author.belongsTo(models.Vote);
-                        Author.belongsTo(models.Comment);
+                        Author.hasMany(models.Summary);
+                        // Author.hasMany(models.Vote);
+                        // Author.hasMany(models.Comment);
                     },
                 },
             });

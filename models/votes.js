@@ -7,8 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                Vote.hasMany(models.Author);
-                Vote.hasMany(models.Summary);
+                Vote.belongsTo(models.Author);
+                Vote.belongsTo(models.Summary);
             }
         },
     });

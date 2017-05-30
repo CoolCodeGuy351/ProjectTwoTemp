@@ -7,8 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                Comment.hasMany(models.Author);
-                Comment.hasMany(models.Summary);
+                Comment.belongsTo(models.Author);
+                Comment.belongsTo(models.Summary);
             }
         },
     });

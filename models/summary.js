@@ -16,10 +16,10 @@ module.exports = function(sequelize, DataTypes) {
         // We're saying that we want our Author to have Posts
         classMethods: {
             associate: function(models) {
-                Summary.belongsTo(models.Vote);
-                Summary.belongsTo(models.Comment);
-                Summary.hasMany(models.Author);
-                Summary.hasMany(models.Category);
+                Summary.hasMany(models.Vote);
+                Summary.hasMany(models.Comment);
+                Summary.belongsTo(models.Author);
+                Summary.belongsTo(models.Category);
             }
         }
     });
