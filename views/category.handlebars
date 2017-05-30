@@ -26,8 +26,12 @@
                 <a href="#" class="navbar-brand"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                 <ul class="nav navbar-nav text-center">
-                <h1>{{catName}}: </h1>
+                <ul class="nav navbar-nav text-center">
+                    <div class="form-control">
+                        <a href="/home">
+                        <p><strong>homepage</strong></p></a>
+                    </div>
+                 <h1>{{catName}}: </h1>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <input type="text" class="form-control" placeholder="Search">
@@ -39,9 +43,11 @@
 
         <ul class = "category-name-container"></ul>
     </div>
-    <div class="row text-center">
+    <br>
+    <!-- row that contains all information for top four: -->
+<!--     <div class="row text-center">
         <h3 align="center">Top Four in {{catName}}</h3>
-        <div class="top-4-list" align="center">
+        <div class="top-4-list" align="center"> -->
 <!-- 
         {{#each top4}}
             <div class="col-sm-3">
@@ -51,7 +57,7 @@
             </div>
         {{/each}}
  -->
-            <div class="col-lg-3">
+  <!--           <div class="col-lg-3">
                 <ul>
                     <li>item one</li>
                     <li>here we will display the the text that is related to the item , the short summary that is entered by the user</li>
@@ -76,19 +82,24 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
+    <!-- end row top four: -->
+
     <div class="row text-center">
         <div class="col-sm-3">
         </div>
         <form class="create-update-form" action="/post" method="POST">
         <div class="col-sm-6">                       
             <div class="form-group text-left">
-                <label for="title">Name:</label>
+                <label for="title">Name of {{catName}}:</label>
                 <input type="text" class="form-control" id="userImputTitle" name="title">
             </div>
             <div class="form-group text-left">
-                <label for="summary">Summary</label>
+                <label for="summary">Summary:</label>
                 <input type="text" class="form-control" id="userImputSummary" name="summary">
+                <input type="hidden" class="form-control" id="catName" name="categName" value="{{catName}}">
+                <input type="hidden" class="form-control" id="authId" name="authId">
+
             </div>
             <button type="submit" class="btn btn-default">Create</button>
             <!-- this will prepend the recently submitted name/summary to the CategoryNameData page -->
@@ -101,9 +112,14 @@
     <div class="container-fluid bg-grey">
         <div class="row text-center">
             <div class="col-sm-2"></div>
-            <!-- every time we add a new post, it needs to be be dynamically and displayed here. we will display last ten submitted summaries, -->
+
+
+            <!-- every time we add a new post, we need to make jquery post the following below -->
+
+
             <div class="col-sm-8">
                      {{#each categoryNameData}}
+                     <!-- title and summary grabbed from html-routes -->
                 <h2><strong>{{title}} </strong></h2>
                 <h4><strong>{{summary}}</strong></h4>
                     <br>
@@ -121,7 +137,8 @@
     </footer>
 
     <script>
-        $('#background').css('background-image', 'url("/css/{{catName}}.jpg")')
+        $('#background').css('background-image', 'url("/css/{{catName}}.jpg")');
+        $('#authId').val(localStorage.authorId);
     </script>
     </body>
 

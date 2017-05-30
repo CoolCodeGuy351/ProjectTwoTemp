@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
             associate: function(models) {
                 Category.hasMany(models.Summary)
             },
-        }
+        }, timestamps: false
     });
     return Category;
 };
